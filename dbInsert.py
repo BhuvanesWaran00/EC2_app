@@ -155,22 +155,24 @@ def insertWarehouse(times):
 #WarehouseStock(warehouse_id, model_id, quantity) 
 #WarehouseModelItem(warehouse_id, model_id, product_id)
 #"""
+import random
+
 def insertWarehouseStock(times):
     try:
         connection = mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="CompuStore")
         cursor = connection.cursor(prepared=True)
-        sql_insert_data_query = "insert into WarehouseStock(warehouse_id, model_id, quantity) VALUES (%s,%s,%s)"
-        sql_insert_data_query2 = "insert into WarehouseModelItem(warehouse_id, model_id, product_id) VALUES (%s,%s,%s)"
+        connection.start_transaction()
+        sql_insert_data_query = "INSERT INTO WarehouseStock(warehouse_id, model_id, quantity) VALUES (%s, %s, %s) ON DUPLICATE KEY UPDATE quantity = VALUES(quantity)"
+
+        sql_insert_data_query2 = "INSERT INTO WarehouseModelItem(warehouse_id, model_id, product_id) VALUES (%s, %s, %s)"
+
         cursor.execute("SELECT model_id FROM CompuStore.LaptopModel")
         result = cursor.fetchall()
-
-        # Print statement to check the values of result
-        #print("Model IDs:", result)
 
         for i in range(1, times):
             for model_id in result:
                 modelID = model_id[0]
-                quantity = random.randint(250, 500)
+                quantity = 1# random.randint(250, 500)
 
                 # Print statements to check the values being inserted
                 print("Inserting into WarehouseStock:", i, modelID, quantity)
@@ -186,11 +188,14 @@ def insertWarehouseStock(times):
 
                     insert_tuple2 = (i, modelID, product_id)
                     cursor.execute(sql_insert_data_query2, insert_tuple2)
-
+                i= i+1  
+        
         connection.commit()
         print("Data Record inserted successfully into WarehouseStore and WarehouseModelItem table")
+        print("Transaction committed successfully.")
     except mysql.connector.Error as error:
-        print("Failed inserting date object into MySQL table: {}".format(error))
+        connection.rollback()
+        print("Failed inserting data into MySQL tables: {}".format(error))
     finally:
         # closing database connection.
         if connection.is_connected():
@@ -198,8 +203,9 @@ def insertWarehouseStock(times):
             connection.close()
             print("MySQL connection is closed")
 
+
 if __name__ == '__main__':
-    insertWarehouse(1)
+    insertWarehouseStock(2)
 
  
  

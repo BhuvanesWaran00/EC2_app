@@ -7,7 +7,6 @@ Flask-SQLAlchemy
 Flask-Migrate
 Flask-Script
 Flask-Login
-
 Faker
 mysql-connector
 werkzeug
