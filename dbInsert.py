@@ -52,7 +52,7 @@ parish = ['Portland','St Mary','St Thomas','St Ann','Kingston','St Andrew','St C
 #CustomerAccount(account_id, email, password, fname, lname, gender, date_of_birth, street, city, parish, telephone, created_on)
 def insertCusAcc(times):
     try:
-       connection= mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="CompuStore")
+       connection= mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="CompuStore")
        cursor = connection.cursor(prepared=True)
        print(connection)
 
@@ -81,7 +81,7 @@ def insertCusAcc(times):
 #CustomerCreditCard(account_id, card_num)
 def insertCard(start,end):
     try:
-        connection= mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="CompuStore")
+        connection= mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="CompuStore")
         cursor = connection.cursor(prepared=True)
         for i in range(start,end):
             # fetching information about customer from CustomerAccount table
@@ -113,7 +113,7 @@ def insertCard(start,end):
 
 #Branch(br_id, name, street, city, parish, telephone)
 def insertBranch():
-    connection= mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="CompuStore")
+    connection= mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="CompuStore")
     cursor = connection.cursor(prepared=True)
     sql_insert_data_query="insert into Branch(br_id, name, street, city, parish, telephone) values('B01','branch1','williams','Stony Hill','Portland','(876)-799-7900')"
     cursor.execute( sql_insert_data_query)
@@ -130,7 +130,7 @@ def insertBranch():
 # Warehouse(wh_id, street, city, parish, telephone)
 def insertWarehouse(times):
     try:
-        connection= mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="CompuStore")
+        connection= mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="CompuStore")
         cursor = connection.cursor(prepared=True)
         for _ in range(0,times):
             sql_insert_data_query="INSERT INTO Warehouse(street,city,parish,telephone) VALUES (%s,%s,%s,%s)"
@@ -157,7 +157,7 @@ def insertWarehouse(times):
 #"""
 def insertWarehouseStock(times):
     try:
-        connection = mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="CompuStore")
+        connection = mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="CompuStore")
         cursor = connection.cursor(prepared=True)
         sql_insert_data_query = "insert into WarehouseStock(warehouse_id, model_id, quantity) VALUES (%s,%s,%s)"
         sql_insert_data_query2 = "insert into WarehouseModelItem(warehouse_id, model_id, product_id) VALUES (%s,%s,%s)"
@@ -207,7 +207,7 @@ if __name__ == '__main__':
 # #CustomerAccount(acc_id, email, password, fname, lname, gender, date_of_birth, street, city, parish, telephone, created_on)
 # def updateCusAcc(start,end):
 #     try:
-#       connection= mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="CompuStore")
+#       connection= mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="CompuStore")
 #       cursor = connection.cursor(prepared=True)
 
 #       for i in range(start,end):
@@ -239,7 +239,7 @@ if __name__ == '__main__':
 #CustomerCreditCard(acc_id, card_num)
 # def insertCard(start,end):
 #     try:
-#         connection= mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="CompuStore")
+#         connection= mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="CompuStore")
 #         cursor = connection.cursor(prepared=True)
 #         for i in range(start,end):
 #             # fetching information about customer from CustomerAccount table
@@ -324,7 +324,7 @@ if __name__ == '__main__':
 # WarehouseStock(wh_id, model_id, quantity) need editing
 # def insertWaresStock(start,end):
 #     try:
-#         connection= mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="CompuStore")
+#         connection= mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="CompuStore")
 #         cursor = connection.cursor(prepared=True)
 #         for _ in range(start,end):
 #             sql_insert_data_query="INSERT INTO Warehouse(model_id,quantity) VALUES (%s,%s)"

@@ -17,19 +17,19 @@ from mysql.connector import Error
 from mysql.connector import errorcode
 
 try: 
-    compuStoreConnection = mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="CompuStore")
+    compuStoreConnection = mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="CompuStore")
     compuStoreCursor = compuStoreConnection.cursor(prepared=True)
 
-    branch1Connection = mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="Branch1")
+    branch1Connection = mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="Branch1")
     branch1Cursor = branch1Connection.cursor(prepared=True)
 
-    branch2Connection = mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="Branch2")
+    branch2Connection = mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="Branch2")
     branch2Cursor = branch2Connection.cursor(prepared=True)
 
-    branch3Connection = mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="Branch3")
+    branch3Connection = mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="Branch3")
     branch3Cursor = branch3Connection.cursor(prepared=True)
 
-    MultiLinkConnection = mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="MultiLink")
+    MultiLinkConnection = mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database="MultiLink")
     MultiLinkCursor = MultiLinkConnection.cursor(prepared=True)
 
 except mysql.connector.Error as error:

@@ -24,7 +24,7 @@ class databaseGenerator:
     def __init__(self, dbname, columns):
         self.dbname   = dbname
         self.column   = columns
-        self.mydb     = mysql.connector.connect(host="localhost", user="root", passwd="Bh101299@", database=dbname)
+        self.mydb     = mysql.connector.connect(host="app.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="root", password="Bh101299", database=dbname)
         self.mycursor = self.mydb.cursor()
 
     # attrib is a list of the arributes for the record, 
