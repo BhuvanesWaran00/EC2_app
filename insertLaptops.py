@@ -7,19 +7,19 @@ from mysql.connector import errorcode
     
 if __name__ == '__main__':
 
-    compuStoreConnection = mysql.connector.connect(host="localhost", user="root", password="Bh101299@", database="CompuStore")
+    compuStoreConnection = mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="CompuStore")
     compuStoreCursor = compuStoreConnection.cursor(prepared=True)
     
     ##LaptopModelLaptopModel(model_id, model, brand, cpu_specs, display_size, resolution, operating_system, gpu_specs, launch_date, thumbnail, price)
     compustoreInsertLaptop = "INSERT INTO LaptopModel VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
    
-    branch1Connection = mysql.connector.connect(host="localhost", user="root", password="Bh101299@", database="Branch1")
+    branch1Connection = mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="Branch1")
     branch1Cursor = branch1Connection.cursor(prepared=True)
    
-    branch2Connection = mysql.connector.connect(host="localhost", user="root", password="Bh101299@", database="Branch2")
+    branch2Connection = mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="Branch2")
     branch2Cursor = branch2Connection.cursor(prepared=True)
    
-    branch3Connection = mysql.connector.connect(host="localhost", user="root", password="Bh101299@", database="Branch3")
+    branch3Connection = mysql.connector.connect(host="compustore.c19gkk3ng7md.ap-south-1.rds.amazonaws.com", user="admin", password="admin123", database="Branch3")
     branch3Cursor = branch3Connection.cursor(prepared=True)
     
     ##LaptopModelLaptopModel(model_id, model, brand, cpu_specs, display_size, resolution, operating_system, gpu_specs, launch_date, thumbnail)
